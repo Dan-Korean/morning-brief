@@ -4,427 +4,345 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌅 아침 브리핑 — 2026-05-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#fcb69f">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="아침 브리핑">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    body { font-family: 'Noto Sans KR', sans-serif; background: #f9fafb; }
-    @media (prefers-color-scheme: dark) { body { background: #111827; color: #e5e7eb; } }
-
+    body { font-family: 'Noto Sans KR', sans-serif; }
     .hero-grad { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a8b 100%); }
-    @media (prefers-color-scheme: dark) { .hero-grad { background: linear-gradient(135deg, #1a0f0a 0%, #3a1e15 50%, #4a2820 100%); } }
-
-    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); font-weight: 600; font-size: 0.92rem; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    @media (prefers-color-scheme: dark) {
+      .hero-grad { background: linear-gradient(135deg, #1a0f0a 0%, #3a1e15 50%, #4a2820 100%); }
+      body { background: #111827; color: #f9fafb; }
+    }
+    .chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.45rem 1rem; border-radius: 9999px;
+      background: rgba(255,255,255,0.75); backdrop-filter: blur(10px);
+      font-weight: 600; font-size: 0.92rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    }
     @media (prefers-color-scheme: dark) { .chip { background: rgba(255,255,255,0.1); color: #fff; } }
-
-    .card { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03); }
-    @media (prefers-color-scheme: dark) { .card { background: #1f2937; color: #e5e7eb; } }
-
-    .day-card { padding: 0.85rem 0.6rem; border-radius: 0.6rem; background: white; min-height: 90px; font-size: 0.85rem; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+    .card { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    @media (prefers-color-scheme: dark) { .card { background: #1f2937; } }
+    .day-card { padding: 0.85rem 0.6rem; border-radius: 0.6rem; background: white; min-height: 90px; font-size: 0.85rem; }
     .day-card.today { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
     .day-card.holiday { background: #fef2f2; }
     @media (prefers-color-scheme: dark) {
-      .day-card { background: #1f2937; color: #e5e7eb; }
-      .day-card.today { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); color: #fde68a; }
+      .day-card { background: #1f2937; }
+      .day-card.today { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); }
       .day-card.holiday { background: #2c1518; }
     }
-
-    .task-item { display: flex; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.92rem; align-items: flex-start; }
-    @media (prefers-color-scheme: dark) { .task-item { border-color: rgba(255,255,255,0.05); color: #e5e7eb; } }
-    .task-item:last-child { border-bottom: none; }
-
-    .summary-card { background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); border-radius: 1rem; padding: 1.3rem; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    @media (prefers-color-scheme: dark) { .summary-card { background: linear-gradient(135deg, rgba(31,41,55,0.92), rgba(31,41,55,0.75)); color: #e5e7eb; } }
-
-    .time-block { display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); }
-    .time-block:last-child { border-bottom: none; }
-    @media (prefers-color-scheme: dark) { .time-block { border-color: rgba(255,255,255,0.06); } }
-
-    .time-pill { background: #dbeafe; color: #1e40af; padding: 0.35rem 0.7rem; border-radius: 0.5rem; font-family: ui-monospace, monospace; font-weight: 700; font-size: 0.82rem; white-space: nowrap; flex-shrink: 0; }
-    @media (prefers-color-scheme: dark) { .time-pill { background: #1e3a8a; color: #bfdbfe; } }
-
-    .sourcing-card { background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%); border-left: 4px solid #ec4899; border-radius: 1rem; padding: 1.7rem; }
-    @media (prefers-color-scheme: dark) { .sourcing-card { background: linear-gradient(135deg, #500724 0%, #431407 100%); color: #e5e7eb; } }
-
-    @media (prefers-color-scheme: dark) {
-      h1, h2, h3 { color: #f9fafb; }
-      table th { color: #9ca3af; }
-      table td { color: #e5e7eb; }
-      a { color: #60a5fa; }
+    .task-item {
+      display: flex; gap: 0.5rem; padding: 0.4rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.92rem;
     }
-
-    input[type="checkbox"] { cursor: pointer; width: 1rem; height: 1rem; margin-top: 0.2rem; flex-shrink: 0; }
-    .section-spacing { margin-bottom: 4rem; }
+    .task-item:last-child { border-bottom: none; }
+    @media (prefers-color-scheme: dark) { .task-item { border-bottom-color: rgba(255,255,255,0.06); } }
+    .summary-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7));
+      border-radius: 1rem; padding: 1.3rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    @media (prefers-color-scheme: dark) {
+      .summary-card { background: linear-gradient(135deg, rgba(31,41,55,0.9), rgba(31,41,55,0.7)); }
+    }
+    .sourcing-card {
+      background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%);
+      border-left: 4px solid #ec4899; border-radius: 1rem; padding: 1.7rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      .sourcing-card { background: linear-gradient(135deg, #500724 0%, #431407 100%); }
+    }
+    .section-title {
+      font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .badge {
+      display: inline-block; padding: 0.1rem 0.55rem; border-radius: 9999px;
+      font-size: 0.72rem; font-weight: 700; background: #fde68a; color: #92400e;
+    }
+    @media (prefers-color-scheme: dark) { .badge { background: #92400e; color: #fde68a; } }
+    .event-tag {
+      display: inline-block; font-size: 0.72rem; font-weight: 600;
+      padding: 0.1rem 0.4rem; border-radius: 0.3rem;
+      background: rgba(252,182,159,0.4); color: #9a3412; margin-top: 0.2rem;
+    }
+    @media (prefers-color-scheme: dark) { .event-tag { background: rgba(252,182,159,0.15); color: #fdba74; } }
+    .project-pill {
+      padding: 0.6rem 1rem; border-radius: 0.75rem; font-size: 0.88rem; font-weight: 500;
+      background: #f3f4f6; line-height: 1.4;
+    }
+    @media (prefers-color-scheme: dark) { .project-pill { background: #374151; } }
+    .proj-note { font-size: 0.75rem; color: #6b7280; margin-top: 0.15rem; }
+    @media (prefers-color-scheme: dark) { .proj-note { color: #9ca3af; } }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th { background: #f9fafb; padding: 0.6rem 0.8rem; text-align: left; font-weight: 600; font-size: 0.82rem; color: #6b7280; }
+    td { padding: 0.6rem 0.8rem; border-top: 1px solid #f3f4f6; }
+    @media (prefers-color-scheme: dark) {
+      th { background: #374151; color: #9ca3af; }
+      td { border-top-color: #374151; }
+    }
+    .memo-item { padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.9rem; line-height: 1.55; }
+    .memo-item:last-child { border-bottom: none; }
+    @media (prefers-color-scheme: dark) { .memo-item { border-bottom-color: rgba(255,255,255,0.06); } }
   </style>
 </head>
 <body class="min-h-screen">
 
-  <!-- ① HERO -->
-  <section class="hero-grad py-12 md:py-20 px-6">
-    <div class="max-w-5xl mx-auto">
-      <p class="text-sm font-semibold tracking-widest uppercase mb-2" style="opacity:0.6">2026-05-31 (일요일)</p>
-      <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">🌅 아침 브리핑</h1>
-
-      <!-- 칩 -->
-      <div class="flex flex-wrap gap-2 mb-8">
-        <span class="chip">📅 일정 3</span>
-        <span class="chip">📁 프로젝트 9</span>
-        <span class="chip">🔁 매일 2</span>
-        <span class="chip">📆 주간 1</span>
-        <span class="chip">✅ 일반 11</span>
-        <span class="chip">🚫 정지 4</span>
-        <span class="chip">📝 메모 1</span>
-      </div>
-
-      <!-- 오늘 강조 -->
-      <div class="border-l-4 border-orange-500 pl-5 py-3 max-w-2xl rounded-r-lg" style="background:rgba(255,255,255,0.28)">
-        <p class="font-black text-lg mb-1">🎯 오늘 강조</p>
-        <p class="text-sm leading-relaxed" style="opacity:0.88">
-          오늘(5/31 일요일)은 <strong>캘린더 일정 없음</strong> — 밀린 작업 처리 최적의 날.<br>
-          📌 수요일 어린이집 모임(12–17시) · 목요일 강사부 강의(13–20시) 예정.<br>
-          → <strong>강의 내용 정리 + 매주 소싱 2개</strong>를 오늘 선제 진행 권장.
-        </p>
-      </div>
+<!-- HERO -->
+<div class="hero-grad px-4 pt-10 pb-8">
+  <div class="max-w-3xl mx-auto">
+    <p class="text-sm font-medium opacity-70 mb-1">2026년 5월 31일 일요일</p>
+    <h1 class="text-3xl font-bold mb-5">🌅 아침 브리핑</h1>
+    <div class="flex flex-wrap gap-2 mb-6">
+      <span class="chip">📅 5월 31일 (일)</span>
+      <span class="chip">🌤 날씨 정보 없음</span>
+      <span class="chip">💨 미세먼지 정보 없음</span>
+      <span class="chip">💱 USD 정보 없음</span>
+      <span class="chip">🗓 이번주 일정 3건</span>
+      <span class="chip">✅ 할일 14개</span>
+      <span class="chip">🎌 현충일 6/6</span>
     </div>
-  </section>
-
-  <!-- ② 오늘 한눈에 (hero 겹침 -mt-12) -->
-  <div class="max-w-5xl mx-auto px-6 relative z-10" style="margin-top:-3rem; margin-bottom:2.5rem;">
-    <div class="grid md:grid-cols-3 gap-4">
-
-      <div class="summary-card">
-        <p class="text-xs uppercase tracking-wider font-semibold mb-3" style="opacity:0.6">🌤 날씨</p>
-        <p class="text-3xl font-black mb-1" style="color:#9ca3af">–°</p>
-        <p class="text-sm" style="opacity:0.55">정보 없음</p>
-        <p class="text-xs italic mt-2" style="opacity:0.4">API 연결 실패 (403)</p>
-      </div>
-
-      <div class="summary-card">
-        <p class="text-xs uppercase tracking-wider font-semibold mb-3" style="opacity:0.6">💨 미세먼지</p>
-        <p class="text-3xl font-black mb-1" style="color:#9ca3af">–</p>
-        <p class="text-sm" style="opacity:0.55">정보 없음 · PM2.5 – µg/m³</p>
-        <p class="text-xs italic mt-2" style="opacity:0.4">API 연결 실패 (403)</p>
-      </div>
-
-      <div class="summary-card">
-        <p class="text-xs uppercase tracking-wider font-semibold mb-3" style="opacity:0.6">💱 환율</p>
-        <p class="text-lg font-bold mb-1" style="opacity:0.4">USD – 원</p>
-        <p class="text-sm" style="opacity:0.4">CNY – 원</p>
-        <p class="text-xs italic mt-2" style="opacity:0.4">API 연결 실패 (403)</p>
-      </div>
-
+    <div class="summary-card">
+      <p class="text-xs font-semibold uppercase tracking-wider opacity-60 mb-2">🎯 이번 주 강조</p>
+      <ul class="space-y-1 text-sm font-medium">
+        <li>📌 6월 3일 (수) <strong>어린이집 모임</strong> 12:00–17:00</li>
+        <li>📌 6월 4일 (목) <strong>강사부 강의</strong> 13:00–20:00 + 재조립 지연 마감</li>
+        <li>📌 6월 6일 (토) <strong>현충일</strong> 공휴일</li>
+        <li>⚠️ 쿠팡 정지 계정 4개 — 소명/대응 진행 중</li>
+      </ul>
     </div>
   </div>
+</div>
 
-  <!-- MAIN -->
-  <main class="max-w-5xl mx-auto px-6 pb-8">
+<div class="max-w-3xl mx-auto px-4 py-6 space-y-6">
 
-    <!-- ③ 이번 주 일정 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">🗓 이번 주 일정</h2>
-      <div class="grid grid-cols-2 md:grid-cols-7 gap-3">
+<!-- 오늘 한눈에 -->
+<div>
+  <div class="section-title">📊 오늘 한눈에</div>
+  <div class="grid grid-cols-3 gap-3">
+    <div class="card text-center">
+      <div class="text-2xl mb-1">🌤</div>
+      <div class="text-xs font-semibold text-gray-500 mb-1">날씨 (서울)</div>
+      <div class="font-bold text-lg text-gray-400">—</div>
+      <div class="text-xs text-gray-400 mt-1">정보 없음</div>
+    </div>
+    <div class="card text-center">
+      <div class="text-2xl mb-1">💨</div>
+      <div class="text-xs font-semibold text-gray-500 mb-1">미세먼지</div>
+      <div class="font-bold text-lg text-gray-400">—</div>
+      <div class="text-xs text-gray-400 mt-1">정보 없음</div>
+    </div>
+    <div class="card text-center">
+      <div class="text-2xl mb-1">💱</div>
+      <div class="text-xs font-semibold text-gray-500 mb-1">환율</div>
+      <div class="font-bold text-base text-gray-400">—</div>
+      <div class="text-xs text-gray-400 mt-1">정보 없음</div>
+    </div>
+  </div>
+</div>
 
-        <div class="day-card today">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">일 · 5/31</p>
-          <p class="text-xs font-black mt-2" style="color:#92400e">✨ 오늘</p>
-          <p class="text-xs mt-1" style="opacity:0.6">일정 없음</p>
-        </div>
+<!-- 이번 주 일정 -->
+<div>
+  <div class="section-title">🗓 이번 주 일정 <span class="badge">3건</span></div>
+  <div class="grid grid-cols-7 gap-1.5">
+    <div class="day-card today">
+      <div class="text-center font-bold text-xs mb-1 text-red-500">일</div>
+      <div class="text-center font-semibold text-sm mb-1">31</div>
+      <div class="text-center text-xs text-orange-600 font-bold">오늘</div>
+    </div>
+    <div class="day-card">
+      <div class="text-center font-bold text-xs mb-1 text-gray-500">월</div>
+      <div class="text-center font-semibold text-sm mb-1">6/1</div>
+    </div>
+    <div class="day-card">
+      <div class="text-center font-bold text-xs mb-1 text-gray-500">화</div>
+      <div class="text-center font-semibold text-sm mb-1">6/2</div>
+    </div>
+    <div class="day-card">
+      <div class="text-center font-bold text-xs mb-1 text-gray-500">수</div>
+      <div class="text-center font-semibold text-sm mb-1">6/3</div>
+      <div class="event-tag">어린이집 모임</div>
+      <div class="text-xs text-gray-400 mt-0.5">12-17시</div>
+    </div>
+    <div class="day-card">
+      <div class="text-center font-bold text-xs mb-1 text-gray-500">목</div>
+      <div class="text-center font-semibold text-sm mb-1">6/4</div>
+      <div class="event-tag">재조립 지연</div>
+      <div class="text-xs text-gray-400 mt-0.5">0-1시</div>
+      <div class="event-tag mt-1">강사부 강의</div>
+      <div class="text-xs text-gray-400 mt-0.5">13-20시</div>
+    </div>
+    <div class="day-card">
+      <div class="text-center font-bold text-xs mb-1 text-gray-500">금</div>
+      <div class="text-center font-semibold text-sm mb-1">6/5</div>
+    </div>
+    <div class="day-card holiday">
+      <div class="text-center font-bold text-xs mb-1 text-red-500">토</div>
+      <div class="text-center font-semibold text-sm mb-1 text-red-500">6/6</div>
+      <div class="text-center text-xs text-red-500 font-semibold mt-1">현충일</div>
+    </div>
+  </div>
+</div>
 
-        <div class="day-card">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">월 · 6/1</p>
-          <p class="text-xs mt-2" style="opacity:0.45">일정 없음</p>
-        </div>
+<!-- 프로젝트 그리드 -->
+<div>
+  <div class="section-title">📁 프로젝트 <span class="badge">9</span></div>
+  <div class="grid grid-cols-1 gap-2">
+    <div class="project-pill">📦 구매대행 대량 — 직접</div>
+    <div class="project-pill">🤝 구매대행 수동 — 선민아</div>
+    <div class="project-pill">
+      🛒 사입
+      <div class="proj-note">공부해야함 · 소싱해야함</div>
+    </div>
+    <div class="project-pill">
+      🔧 공구 전문몰 (테크리움)
+      <div class="proj-note">알리 상세페이지 변환 프로그램 진행중</div>
+    </div>
+    <div class="project-pill">🎬 릴스 동영상 변환 프로그램 만들기</div>
+    <div class="project-pill">🇨🇳 중국 상세페이지 변환 프로그램 만들기</div>
+    <div class="project-pill">
+      🛍 쿠팡 구매대행 조회수 확인해서 올리기
+      <div class="proj-note">수동 &amp; 일반</div>
+    </div>
+    <div class="project-pill">
+      🏪 불사자 스스 카테고리 정리
+      <div class="proj-note">1개씩 만들기</div>
+    </div>
+    <div class="project-pill">📋 스마트스토어 카피</div>
+  </div>
+</div>
 
-        <div class="day-card">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">화 · 6/2</p>
-          <p class="text-xs mt-2" style="opacity:0.45">일정 없음</p>
-        </div>
+<!-- 할일 3컬럼 -->
+<div>
+  <div class="section-title">✅ 할일 <span class="badge">14개</span></div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <div class="card">
+      <div class="font-semibold text-sm mb-3 text-orange-500">🌅 매일 할일</div>
+      <div class="task-item"><span>☐</span><span>이메일 확인</span></div>
+      <div class="task-item"><span>☐</span><span>대기중 확인</span></div>
+    </div>
+    <div class="card">
+      <div class="font-semibold text-sm mb-3 text-blue-500">📆 주간 할일</div>
+      <div class="task-item"><span>☐</span><span>매주 소싱 2개</span></div>
+    </div>
+    <div class="card">
+      <div class="font-semibold text-sm mb-3 text-gray-500">📝 일반 할일</div>
+      <div class="task-item"><span>☐</span><span>알리 카드 확인하기</span></div>
+      <div class="task-item"><span>☐</span><span>재조립 일정 변경</span></div>
+      <div class="task-item"><span>☐</span><span>강사부 강의 내용 정리</span></div>
+      <div class="task-item"><span>☐</span><span>401 전화번호 바꾸기</span></div>
+      <div class="task-item"><span>☐</span><span>지옥션 상품 올리기</span></div>
+      <div class="task-item"><span>☐</span><span>11번가 상품 올리기 &amp; 계정 정리</span></div>
+      <div class="task-item"><span>☐</span><span>상표권 신청하기</span></div>
+      <div class="task-item"><span>☐</span><span>사업자 전화번호 정리하기</span></div>
+      <div class="task-item"><span>☐</span><span>추가 사업자 등록</span></div>
+      <div class="task-item"><span>☐</span><span>바로쏨 보상받기</span></div>
+      <div class="task-item"><span>☐</span><span>쿠쿠 확인</span></div>
+    </div>
+  </div>
+</div>
 
-        <div class="day-card">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">수 · 6/3</p>
-          <p class="text-xs font-semibold mt-2">👨‍👩‍👧 어린이집 모임</p>
-          <p class="text-xs mt-0.5" style="opacity:0.6">12:00–17:00</p>
-        </div>
+<!-- 정지 계정 테이블 -->
+<div>
+  <div class="section-title">🚫 정지 계정</div>
+  <div class="card p-0 overflow-hidden">
+    <table>
+      <thead>
+        <tr>
+          <th>플랫폼</th>
+          <th>계정</th>
+          <th>사유 / 현황</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="font-semibold text-orange-500">쿠팡</td>
+          <td>222</td>
+          <td>5.27 소명자료 제출</td>
+        </tr>
+        <tr>
+          <td class="font-semibold text-orange-500">쿠팡</td>
+          <td>223</td>
+          <td>계정 판매 자격 요건</td>
+        </tr>
+        <tr>
+          <td class="font-semibold text-orange-500">쿠팡</td>
+          <td>225</td>
+          <td>연관계정 / 5.27 메일 다시보냄</td>
+        </tr>
+        <tr>
+          <td class="font-semibold text-orange-500">쿠팡</td>
+          <td>403</td>
+          <td>판매자 계정 판매 자격</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-        <div class="day-card">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">목 · 6/4</p>
-          <p class="text-xs font-semibold mt-2">🔧 재조립 지연</p>
-          <p class="text-xs" style="opacity:0.6">00:00–01:00</p>
-          <p class="text-xs font-semibold mt-1">📚 강사부 강의</p>
-          <p class="text-xs" style="opacity:0.6">13:00–20:00</p>
-        </div>
-
-        <div class="day-card">
-          <p class="font-bold text-xs mb-1" style="opacity:0.65">금 · 6/5</p>
-          <p class="text-xs mt-2" style="opacity:0.45">일정 없음</p>
-        </div>
-
-        <div class="day-card holiday">
-          <p class="font-bold text-xs mb-1" style="color:#dc2626">토 · 6/6</p>
-          <p class="text-xs font-bold mt-2" style="color:#dc2626">🏖 현충일</p>
-        </div>
-
+<!-- 소싱 아이디어 -->
+<div>
+  <div class="section-title">💡 오늘의 소싱 아이디어</div>
+  <div class="sourcing-card">
+    <div class="text-xs font-semibold text-pink-400 mb-3 uppercase tracking-wider">※ 자체 지식 기반 분석 (실시간 아님)</div>
+    <div class="flex items-start gap-3 mb-3">
+      <span class="text-3xl">🐶</span>
+      <div>
+        <div class="font-bold text-lg">반려동물 훈련용품</div>
+        <div class="text-sm text-gray-500">추천 카테고리</div>
       </div>
-    </section>
+    </div>
+    <div class="bg-white bg-opacity-60 rounded-lg p-3 mb-3">
+      <div class="font-semibold text-sm mb-1">📦 추출 상품: <span class="text-pink-600">노즈워크 매트</span></div>
+      <div class="text-sm text-gray-600">후각 자극 훈련용 러그 — 노션 메모에서 이미 소싱 검토 중인 아이템</div>
+    </div>
+    <div class="text-sm font-medium">
+      💰 알리 매입가 2,000–4,000원 / 국내 판매가 20,000–35,000원대, 가볍고 부피 작아 배송비 절약 가능 → 구매대행 마진 최적 카테고리
+    </div>
+  </div>
+</div>
 
-    <!-- ④ 시간 블록 추천 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">🧠 시간 블록 추천</h2>
-      <div class="card">
-        <ul>
-          <li class="time-block">
-            <span class="time-pill">09:00–10:00</span>
-            <div>
-              <strong>매일 루틴</strong>
-              <span class="text-sm ml-1" style="opacity:0.65">· 이메일 확인 + 대기중 확인 — 하루 시작 필수 체크</span>
-            </div>
-          </li>
-          <li class="time-block">
-            <span class="time-pill">10:00–11:30</span>
-            <div>
-              <strong>재조립 일정 변경 + 알리 카드 확인</strong>
-              <span class="text-sm ml-1" style="opacity:0.65">· 빠르게 처리 가능한 일반 할일 묶음, 30분 내 완료 목표</span>
-            </div>
-          </li>
-          <li class="time-block">
-            <span class="time-pill">13:00–14:30</span>
-            <div>
-              <strong>강사부 강의 내용 정리</strong>
-              <span class="text-sm ml-1" style="opacity:0.65">· 목요일 강의(13–20시) 전 사전 파악 필수, 여유 있는 오늘 처리</span>
-            </div>
-          </li>
-          <li class="time-block">
-            <span class="time-pill">15:00–16:30</span>
-            <div>
-              <strong>매주 소싱 2개 작업</strong>
-              <span class="text-sm ml-1" style="opacity:0.65">· 일요일 경쟁 탐색에 유리, 이번 주 주간 목표 달성</span>
-            </div>
-          </li>
-          <li class="time-block">
-            <span class="time-pill">16:30–18:00</span>
-            <div>
-              <strong>지옥션 + 11번가 상품 등록</strong>
-              <span class="text-sm ml-1" style="opacity:0.65">· 판매 채널 확장 일반 할일 일괄 처리</span>
-            </div>
-          </li>
-        </ul>
+<!-- 메모 -->
+<div>
+  <div class="section-title">📝 메모</div>
+  <div class="card">
+    <div class="memo-item">
+      <span class="font-semibold">🛒 지옥션 캐시 업로드 전 해외설정</span>
+      <div class="text-xs text-gray-400 mt-1">cafe.naver.com/f-e/cafes/30554171/articles/17059</div>
+    </div>
+    <div class="memo-item">
+      <span class="font-semibold">🐾 소싱: 노즈워크</span>
+      <div class="text-xs text-gray-400 mt-1">1688 링크 3개 확인됨 · 메인키워드: <strong>노즈워크</strong></div>
+      <div class="text-xs mt-1 space-y-0.5">
+        <div><a href="https://detail.1688.com/offer/1045517671647.html" target="_blank" rel="noopener" class="text-blue-400 hover:underline break-all">detail.1688.com/offer/1045517671647</a></div>
+        <div><a href="https://detail.1688.com/offer/1034391150685.html" target="_blank" rel="noopener" class="text-blue-400 hover:underline break-all">detail.1688.com/offer/1034391150685</a></div>
+        <div><a href="https://detail.1688.com/offer/997172604631.html" target="_blank" rel="noopener" class="text-blue-400 hover:underline break-all">detail.1688.com/offer/997172604631</a></div>
       </div>
-    </section>
+    </div>
+  </div>
+</div>
 
-    <!-- ⑤ 프로젝트 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">📁 프로젝트</h2>
-      <div class="card">
-        <div class="grid md:grid-cols-2 gap-1">
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>구매대행 대량</strong> — 직접</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>구매대행 수동</strong> — 선민아</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>사입</strong> <span class="text-xs ml-1" style="opacity:0.6">— 공부해야함, 소싱해야함</span></span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>공구 전문몰 (테크리움)</strong> <span class="text-xs ml-1" style="opacity:0.6">— 알리 상세페이지 변환 프로그램 진행중</span></span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>릴스 동영상 변환 프로그램</strong> 만들기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>중국 상세페이지 변환 프로그램</strong> 만들기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>쿠팡 구매대행 조회수</strong> 확인해서 올리기 <span class="text-xs ml-1" style="opacity:0.6">— 수동 &amp; 일반</span></span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>불사자 스스 카테고리 정리</strong> <span class="text-xs ml-1" style="opacity:0.6">— 1개씩 만들기</span></span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#f97316">
-            <span><strong>스마트스토어 카피</strong></span>
-          </label>
-        </div>
-      </div>
-    </section>
+<!-- Footer -->
+<footer class="text-center text-xs text-gray-400 pb-8 pt-2">
+  <p>아침 브리핑 · 생성 시각: 2026-05-31 KST</p>
+  <p class="mt-1">날씨·환율·미세먼지: 네트워크 정책으로 조회 불가 (정보 없음)</p>
+  <p class="mt-1"><a href="https://dan-korean.github.io/morning-brief/" class="text-orange-400 hover:underline">🔗 페이지 링크</a></p>
+</footer>
 
-    <!-- ⑥ 할일 3컬럼 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">✅ 할일</h2>
-      <div class="grid md:grid-cols-3 gap-6">
+</div>
 
-        <!-- 매일 -->
-        <div class="card">
-          <h3 class="font-bold text-base mb-4">🔁 매일 할일</h3>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#3b82f6">
-            <span>이메일 확인</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#3b82f6">
-            <span>대기중 확인</span>
-          </label>
-        </div>
-
-        <!-- 주간 -->
-        <div class="card">
-          <h3 class="font-bold text-base mb-4">📆 주간 할일</h3>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#8b5cf6">
-            <span>매주 소싱 2개</span>
-          </label>
-        </div>
-
-        <!-- 일반 -->
-        <div class="card">
-          <h3 class="font-bold text-base mb-4">📋 일반 할일</h3>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>알리 카드 확인하기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>재조립 일정 변경</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>강사부가 보내준 강의 내용 정리</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>401 전화번호 바꾸기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>지옥션 상품 올리기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>11번가 상품 올리기 및 계정 정리하기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>상표권 신청하기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>사업자 전화번호 정리하기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>추가 사업자 등록</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>바로쏨 보상받기</span>
-          </label>
-          <label class="task-item cursor-pointer">
-            <input type="checkbox" style="accent-color:#22c55e">
-            <span>쿠쿠 확인</span>
-          </label>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ⑦ 정지 계정 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">🚫 정지 계정</h2>
-      <div class="card overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr style="border-bottom:2px solid rgba(0,0,0,0.08)">
-              <th class="text-left py-2 pr-6 font-semibold text-xs uppercase tracking-wider" style="opacity:0.55">플랫폼</th>
-              <th class="text-left py-2 pr-6 font-semibold text-xs uppercase tracking-wider" style="opacity:0.55">계정</th>
-              <th class="text-left py-2 font-semibold text-xs uppercase tracking-wider" style="opacity:0.55">진행 상황</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
-              <td class="py-3 pr-6">쿠팡</td>
-              <td class="py-3 pr-6 font-mono font-bold" style="color:#dc2626">222</td>
-              <td class="py-3">5.27 소명자료 제출</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
-              <td class="py-3 pr-6">쿠팡</td>
-              <td class="py-3 pr-6 font-mono font-bold" style="color:#dc2626">223</td>
-              <td class="py-3">계정 판매 자격 요건</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(0,0,0,0.05)">
-              <td class="py-3 pr-6">쿠팡</td>
-              <td class="py-3 pr-6 font-mono font-bold" style="color:#dc2626">225</td>
-              <td class="py-3">연관계정 / 5.27 메일 다시보냄</td>
-            </tr>
-            <tr>
-              <td class="py-3 pr-6">쿠팡</td>
-              <td class="py-3 pr-6 font-mono font-bold" style="color:#dc2626">403</td>
-              <td class="py-3">판매자 계정 판매 자격</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- ⑧ 소싱 아이디어 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">💡 오늘의 소싱 아이디어</h2>
-      <div class="sourcing-card">
-        <p class="text-xs uppercase tracking-wider font-semibold" style="opacity:0.6">추천 카테고리</p>
-        <p class="text-2xl font-bold mt-1 mb-5">☀️ 여름 냉방 / 생활용품</p>
-
-        <p class="text-xs uppercase tracking-wider font-semibold" style="opacity:0.6">추천 상품</p>
-        <p class="text-lg font-medium mt-1">USB 휴대용 미니 에어쿨러 3-in-1 (냉풍 + 가습 + 공기순환)</p>
-        <p class="text-sm mt-2 leading-relaxed" style="opacity:0.75">6월부터 기온 상승 &amp; 전기세 부담으로 소형 냉방 수요 급증. 알리 원가 ₩8,000–15,000 / 국내 판매가 ₩25,000–45,000으로 마진율 우수. 리뷰 누적 쉬운 초보 판매자 친화 여름 필수 아이템.</p>
-
-        <p class="text-xs italic mt-6" style="opacity:0.45">⚠️ AI 자체 지식 기반 · 실시간 데이터 아님</p>
-      </div>
-    </section>
-
-    <!-- ⑨ 메모 -->
-    <section class="section-spacing">
-      <h2 class="text-3xl font-bold mb-6">📝 메모</h2>
-      <div class="card">
-        <ul>
-          <li class="task-item">
-            <span style="font-size:1.1rem;flex-shrink:0">📌</span>
-            <div>
-              <strong>지옥션 캐시 업로드 전 해외설정</strong><br>
-              <a href="https://cafe.naver.com/f-e/cafes/30554171/articles/17059?referrerAllArticles=true"
-                 target="_blank" rel="noopener"
-                 style="color:#2563eb;text-decoration:underline;font-size:0.8rem;word-break:break-all;">
-                https://cafe.naver.com/f-e/cafes/30554171/articles/17059
-              </a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="max-w-5xl mx-auto px-6 py-8 text-center text-xs" style="opacity:0.45">
-    마지막 업데이트 2026-05-31T08:00:00+09:00 KST · 매일 오전 8시 자동 &nbsp;|&nbsp; 📱 Chrome "홈 화면에 추가" 로 PWA 설치
-  </footer>
-
-  <script>
-    if('serviceWorker' in navigator){
-      navigator.serviceWorker.register('sw.js').catch(()=>{});
-    }
-  </script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+</script>
 </body>
 </html>
