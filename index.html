@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🌅 아침 브리핑 — 2026-05-31</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#fcb69f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="아침 브리핑">
+  <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;900&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -412,8 +418,13 @@
 
   <!-- Footer -->
   <footer class="max-w-5xl mx-auto px-6 py-8 text-center text-xs" style="opacity:0.45">
-    마지막 업데이트 2026-05-31T08:00:00+09:00 KST · 매일 오전 8시 자동
+    마지막 업데이트 2026-05-31T08:00:00+09:00 KST · 매일 오전 8시 자동 &nbsp;|&nbsp; 📱 Chrome "홈 화면에 추가" 로 PWA 설치
   </footer>
 
+  <script>
+    if('serviceWorker' in navigator){
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    }
+  </script>
 </body>
 </html>
