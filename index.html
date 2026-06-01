@@ -3,307 +3,211 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌅 아침 브리핑 — 2026년 5월 31일</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>🌅 아침 브리핑</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#fcb69f">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="아침 브리핑">
   <link rel="apple-touch-icon" href="icon-192.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Noto Sans KR', sans-serif; }
     .hero-grad { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a8b 100%); }
     @media (prefers-color-scheme: dark) { .hero-grad { background: linear-gradient(135deg, #1a0f0a 0%, #3a1e15 50%, #4a2820 100%); } }
-    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); font-weight: 600; font-size: 0.92rem; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
+    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); font-weight: 600; font-size: 0.92rem; }
     @media (prefers-color-scheme: dark) { .chip { background: rgba(255,255,255,0.1); color: #fff; } }
     .card { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    @media (prefers-color-scheme: dark) { .card { background: #1f2937; color: #f3f4f6; } }
+    @media (prefers-color-scheme: dark) { .card { background: #1f2937; } }
     .day-card { padding: 0.85rem 0.6rem; border-radius: 0.6rem; background: white; min-height: 90px; font-size: 0.85rem; }
     .day-card.today { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
     .day-card.holiday { background: #fef2f2; }
-    @media (prefers-color-scheme: dark) {
-      .day-card { background: #1f2937; color: #f3f4f6; }
-      .day-card.today { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); }
-      .day-card.holiday { background: #2c1518; }
-    }
-    .task-item { display: flex; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.92rem; align-items: flex-start; }
+    @media (prefers-color-scheme: dark) { .day-card { background: #1f2937; } .day-card.today { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); } .day-card.holiday { background: #2c1518; } }
+    .task-item { display: flex; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.92rem; }
     .task-item:last-child { border-bottom: none; }
-    @media (prefers-color-scheme: dark) { .task-item { border-bottom-color: rgba(255,255,255,0.06); } }
-    .summary-card { background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); border-radius: 1rem; padding: 1.3rem; backdrop-filter: blur(10px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    @media (prefers-color-scheme: dark) { .summary-card { background: linear-gradient(135deg, rgba(31,41,55,0.9), rgba(31,41,55,0.7)); color: #f3f4f6; } }
+    .summary-card { background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); border-radius: 1rem; padding: 1.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    @media (prefers-color-scheme: dark) { .summary-card { background: linear-gradient(135deg, rgba(31,41,55,0.9), rgba(31,41,55,0.7)); } }
     .sourcing-card { background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%); border-left: 4px solid #ec4899; border-radius: 1rem; padding: 1.7rem; }
-    @media (prefers-color-scheme: dark) { .sourcing-card { background: linear-gradient(135deg, #500724 0%, #431407 100%); color: #f3f4f6; } }
+    @media (prefers-color-scheme: dark) { .sourcing-card { background: linear-gradient(135deg, #500724 0%, #431407 100%); } }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen">
 
   <!-- 1. Hero -->
   <section class="hero-grad px-4 pt-10 pb-8">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-sm font-medium opacity-70 mb-1">2026년 5월 31일 일요일 · KST</p>
-      <h1 class="text-3xl font-bold mb-5">🌅 아침 브리핑</h1>
-      <!-- 7-day chips -->
+    <div class="max-w-2xl mx-auto">
+      <p class="text-sm font-semibold opacity-70 mb-1">2026년 6월 1일 월요일</p>
+      <h1 class="text-4xl font-black mb-6">🌅 아침 브리핑</h1>
+
+      <!-- 7 chip (6/1~6/7) -->
       <div class="flex flex-wrap gap-2 mb-6">
-        <span class="chip">📍 5/31 오늘(일)</span>
-        <span class="chip">6/1 (월)</span>
-        <span class="chip">6/2 (화)</span>
-        <span class="chip">📌 6/3 (수) 1건</span>
-        <span class="chip">📌 6/4 (목) 2건</span>
-        <span class="chip">6/5 (금)</span>
-        <span class="chip">🎖 6/6 현충일</span>
+        <span class="chip" style="background:rgba(251,191,36,0.85);">📌 6/1 월 오늘</span>
+        <span class="chip">6/2 화</span>
+        <span class="chip">🗓 6/3 수</span>
+        <span class="chip">🗓🗓 6/4 목</span>
+        <span class="chip">6/5 금</span>
+        <span class="chip" style="background:rgba(254,202,202,0.85);">🚩 6/6 토</span>
+        <span class="chip">6/7 일</span>
       </div>
+
       <!-- 오늘 강조 -->
-      <div class="summary-card">
-        <p class="font-bold text-base mb-2">🎯 오늘 강조</p>
-        <ul class="space-y-1.5 text-sm">
-          <li>⚠️ 쿠팡 정지 계정 4개 소명 진행 중 — 222·225 메일 팔로우업 필요</li>
-          <li>📅 이번 주 일정 3건 (수 어린이집 모임, 목 재조립·강사부 강의)</li>
-          <li>✅ 오늘 할일: 이메일 확인 · 대기중 확인</li>
-          <li>📦 노즈워크 소싱 진행 중 (메인키워드 1,500건 확보)</li>
-        </ul>
+      <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur rounded-xl p-4">
+        <p class="text-xs font-bold opacity-60 uppercase tracking-wider mb-2">🎯 오늘 강조</p>
+        <p class="font-semibold">오늘(6/1) 예정 일정 없음 · 이번 주 주요: 6/3 어린이집 모임, 6/4 강사부 강의</p>
+        <p class="text-sm opacity-70 mt-1">Notion 할일: 강사부 강의 내용 정리 · 재조립 일정 변경 · 지옥션/11번가 상품 올리기</p>
       </div>
     </div>
   </section>
 
-  <div class="max-w-4xl mx-auto px-4 py-6 space-y-6">
+  <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
 
     <!-- 2. 오늘 한눈에 -->
     <section>
-      <h2 class="text-lg font-bold mb-3">☀️ 오늘 한눈에</h2>
+      <h2 class="text-lg font-bold mb-3 opacity-80">🔍 오늘 한눈에</h2>
       <div class="grid grid-cols-3 gap-3">
-        <div class="card text-center">
-          <div class="text-2xl mb-1">🌤</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">날씨 (서울)</div>
-          <div class="font-bold text-sm">정보 없음</div>
-          <div class="text-xs text-gray-400 mt-1">API 차단</div>
+        <div class="summary-card">
+          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">🌤 날씨</div>
+          <div id="weather-temp" class="text-3xl font-black">—</div>
+          <div class="text-sm opacity-70"><span id="weather-desc">로딩...</span> · 체감 <span id="weather-feels">—</span></div>
+          <div id="weather-range" class="text-xs opacity-60 mt-2">—</div>
         </div>
-        <div class="card text-center">
-          <div class="text-2xl mb-1">💨</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">미세먼지</div>
-          <div class="font-bold text-sm">정보 없음</div>
-          <div class="text-xs text-gray-400 mt-1">AQI —</div>
+        <div class="summary-card">
+          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">💨 미세먼지</div>
+          <div id="aqi-val" class="text-3xl font-black">—</div>
+          <div class="text-sm opacity-70"><span id="aqi-label">로딩...</span> · PM2.5 <span id="aqi-pm25">—</span></div>
         </div>
-        <div class="card text-center">
-          <div class="text-2xl mb-1">💱</div>
-          <div class="text-xs text-gray-500 dark:text-gray-400 mb-1">환율</div>
-          <div class="font-bold text-sm">정보 없음</div>
-          <div class="text-xs text-gray-400 mt-1">API 차단</div>
+        <div class="summary-card">
+          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">💱 환율</div>
+          <div class="text-lg font-bold">USD <span id="usd-krw">—</span></div>
+          <div class="text-lg font-bold">CNY <span id="cny-krw">—</span></div>
         </div>
       </div>
     </section>
 
     <!-- 3. 이번 주 일정 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">🗓 이번 주 일정</h2>
-      <div class="grid grid-cols-7 gap-1.5 mb-3">
-        <!-- 5/31 일 TODAY -->
-        <div class="day-card today text-center">
-          <div class="text-xs font-bold text-amber-700 dark:text-amber-200 mb-0.5">오늘</div>
-          <div class="font-bold text-sm">31</div>
-          <div class="text-xs opacity-60">일</div>
+    <section class="card">
+      <h2 class="text-lg font-bold mb-4">🗓 이번 주 일정</h2>
+      <div class="grid grid-cols-7 gap-1.5 text-center">
+        <div class="day-card today">
+          <div class="text-xs font-bold opacity-60">월</div>
+          <div class="font-bold text-sm mt-0.5">6/1</div>
+          <div class="text-xs mt-1 text-amber-700 dark:text-amber-300 font-bold">오늘</div>
+          <div class="text-xs mt-1 opacity-50">없음</div>
         </div>
-        <!-- 6/1 월 -->
-        <div class="day-card text-center">
-          <div class="text-xs mb-0.5 opacity-0">-</div>
-          <div class="font-bold text-sm">6/1</div>
-          <div class="text-xs opacity-60">월</div>
+        <div class="day-card">
+          <div class="text-xs font-bold opacity-60">화</div>
+          <div class="font-bold text-sm mt-0.5">6/2</div>
+          <div class="text-xs mt-1 opacity-50">없음</div>
         </div>
-        <!-- 6/2 화 -->
-        <div class="day-card text-center">
-          <div class="text-xs mb-0.5 opacity-0">-</div>
-          <div class="font-bold text-sm">6/2</div>
-          <div class="text-xs opacity-60">화</div>
+        <div class="day-card">
+          <div class="text-xs font-bold opacity-60">수</div>
+          <div class="font-bold text-sm mt-0.5">6/3</div>
+          <div class="text-xs mt-2 text-blue-600 dark:text-blue-400 font-semibold leading-tight">어린이집<br>모임<br>12~17시</div>
         </div>
-        <!-- 6/3 수 -->
-        <div class="day-card text-center">
-          <div class="text-xs mb-0.5 opacity-0">-</div>
-          <div class="font-bold text-sm">6/3</div>
-          <div class="text-xs opacity-60">수</div>
-          <div class="mt-1 text-xs text-blue-600 dark:text-blue-400 leading-tight">어린이집<br>모임</div>
+        <div class="day-card">
+          <div class="text-xs font-bold opacity-60">목</div>
+          <div class="font-bold text-sm mt-0.5">6/4</div>
+          <div class="text-xs mt-1 text-blue-500 dark:text-blue-400 font-semibold leading-tight">재조립<br>지연<br>0~1시</div>
+          <div class="text-xs mt-1 text-purple-600 dark:text-purple-400 font-semibold leading-tight">강사부<br>강의<br>13~20시</div>
         </div>
-        <!-- 6/4 목 -->
-        <div class="day-card text-center">
-          <div class="text-xs mb-0.5 opacity-0">-</div>
-          <div class="font-bold text-sm">6/4</div>
-          <div class="text-xs opacity-60">목</div>
-          <div class="mt-1 text-xs text-blue-600 dark:text-blue-400 leading-tight">재조립<br>강사부<br>강의</div>
+        <div class="day-card">
+          <div class="text-xs font-bold opacity-60">금</div>
+          <div class="font-bold text-sm mt-0.5">6/5</div>
+          <div class="text-xs mt-1 opacity-50">없음</div>
         </div>
-        <!-- 6/5 금 -->
-        <div class="day-card text-center">
-          <div class="text-xs mb-0.5 opacity-0">-</div>
-          <div class="font-bold text-sm">6/5</div>
-          <div class="text-xs opacity-60">금</div>
+        <div class="day-card holiday">
+          <div class="text-xs font-bold text-red-500">토</div>
+          <div class="font-bold text-sm mt-0.5 text-red-600">6/6</div>
+          <div class="text-xs mt-1 text-red-500 font-bold">🚩현충일</div>
         </div>
-        <!-- 6/6 토 현충일 -->
-        <div class="day-card holiday text-center">
-          <div class="text-xs font-bold text-red-600 dark:text-red-400 mb-0.5">공휴일</div>
-          <div class="font-bold text-sm text-red-600 dark:text-red-400">6/6</div>
-          <div class="text-xs text-red-500">토</div>
-          <div class="mt-1 text-xs text-red-500 font-medium">현충일</div>
-        </div>
-      </div>
-      <!-- Event list -->
-      <div class="card">
-        <div class="space-y-2.5">
-          <div class="flex items-center gap-3">
-            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full font-semibold shrink-0">6/3 수</span>
-            <div class="text-sm">
-              <span class="font-semibold">어린이집 모임</span>
-              <span class="text-gray-400 ml-2">12:00 – 17:00</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full font-semibold shrink-0">6/4 목</span>
-            <div class="text-sm">
-              <span class="font-semibold">재조립 지연</span>
-              <span class="text-gray-400 ml-2">00:00 – 01:00</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-0.5 rounded-full font-semibold shrink-0">6/4 목</span>
-            <div class="text-sm">
-              <span class="font-semibold">강사부 강의</span>
-              <span class="text-gray-400 ml-2">13:00 – 20:00</span>
-            </div>
-          </div>
+        <div class="day-card">
+          <div class="text-xs font-bold text-red-400">일</div>
+          <div class="font-bold text-sm mt-0.5 text-red-400">6/7</div>
+          <div class="text-xs mt-1 opacity-50">없음</div>
         </div>
       </div>
     </section>
 
     <!-- 4. 프로젝트 그리드 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">📁 프로젝트</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🛒</span>
-          <div>
-            <div class="font-semibold text-sm">구매대행 대량 - 직접</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">👤</span>
-          <div>
-            <div class="font-semibold text-sm">구매대행 수동 - 선민아</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">📦</span>
-          <div>
-            <div class="font-semibold text-sm">사입</div>
-            <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">공부해야함 · 소싱해야함</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🔧</span>
-          <div>
-            <div class="font-semibold text-sm">공구 전문몰 (테크리움)</div>
-            <div class="text-xs text-amber-600 dark:text-amber-400 mt-0.5">🔄 알리 상세페이지 변환 진행중</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🎬</span>
-          <div>
-            <div class="font-semibold text-sm">릴스 동영상 변환 프로그램</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🇨🇳</span>
-          <div>
-            <div class="font-semibold text-sm">중국 상세페이지 변환 프로그램</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🚀</span>
-          <div>
-            <div class="font-semibold text-sm">쿠팡 구매대행 조회수 확인 &amp; 업로드</div>
-            <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">수동 &amp; 일반</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3">
-          <span class="text-xl mt-0.5">🗂</span>
-          <div>
-            <div class="font-semibold text-sm">불사자 스스 카테고리 정리</div>
-            <div class="text-xs text-gray-500 dark:text-gray-400 mt-0.5">1개씩 만들기</div>
-          </div>
-        </div>
-        <div class="card flex items-start gap-3 sm:col-span-2">
-          <span class="text-xl mt-0.5">🏪</span>
-          <div>
-            <div class="font-semibold text-sm">스마트스토어 카피</div>
-          </div>
-        </div>
+    <section class="card">
+      <h2 class="text-lg font-bold mb-4">📁 프로젝트</h2>
+      <div class="space-y-1">
+        <div class="task-item"><span class="opacity-40">☐</span><span>구매대행 대량 - 직접</span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>구매대행 수동 - 선민아</span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>사입 <span class="opacity-60 text-sm">— 공부해야함, 소싱해야함</span></span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>공구 전문몰(테크리움) <span class="opacity-60 text-sm">— 알리 상세페이지 변환 프로그램 진행중</span></span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>릴스 동영상 변환 프로그램 만들기</span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>중국 상세페이지 변환 프로그램 만들기</span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>쿠팡 구매대행 조회수 확인해서 올리기 <span class="opacity-60 text-sm">— 수동 &amp; 일반</span></span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>불사자 스스 카테고리 정리 <span class="opacity-60 text-sm">— 1개씩 만들기</span></span></div>
+        <div class="task-item"><span class="opacity-40">☐</span><span>스마트스토어 카피</span></div>
       </div>
     </section>
 
     <!-- 5. 할일 3컬럼 -->
     <section>
       <h2 class="text-lg font-bold mb-3">✅ 할일</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <!-- 매일 할일 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="card">
-          <h3 class="font-bold text-sm text-orange-600 dark:text-orange-400 mb-3">🌅 매일 할일</h3>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-orange-500"><span>이메일 확인</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-orange-500"><span>대기중 확인</span></div>
+          <h3 class="font-bold text-sm mb-3 text-orange-500">📅 매일 할일</h3>
+          <div class="task-item"><span class="opacity-40">☐</span><span>이메일 확인</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>대기중 확인</span></div>
         </div>
-        <!-- 주간 할일 -->
         <div class="card">
-          <h3 class="font-bold text-sm text-blue-600 dark:text-blue-400 mb-3">📅 주간 할일</h3>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-blue-500"><span>매주 소싱 2개</span></div>
+          <h3 class="font-bold text-sm mb-3 text-blue-500">📆 주간 할일</h3>
+          <div class="task-item"><span class="opacity-40">☐</span><span>매주 소싱 2개</span></div>
         </div>
-        <!-- 일반 할일 -->
         <div class="card">
-          <h3 class="font-bold text-sm text-purple-600 dark:text-purple-400 mb-3">📋 일반 할일 <span class="text-gray-400 font-normal text-xs">(13)</span></h3>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>알리 카드 확인 (롯데카드 가능?)</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>배터리 과태료 내기 &amp; 이메일 답변</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>재조립 일정 변경</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>강사부 강의 내용 정리</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>401 전화번호 바꾸기</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>지옥션 상품 올리기</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>11번가 상품 올리기 &amp; 계정 정리</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>무브코어 싸게 해치우기</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>상표권 신청하기</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>사업자 전화번호 정리</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>추가 사업자 등록</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>바로쏨 보상받기</span></div>
-          <div class="task-item"><input type="checkbox" class="mt-0.5 shrink-0 accent-purple-500"><span>쿠쿠 확인</span></div>
+          <h3 class="font-bold text-sm mb-3 text-green-600">📋 일반 할일</h3>
+          <div class="task-item"><span class="opacity-40">☐</span><span>알리 카드 확인하기 → 롯데카드 되는지</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>배터리 과태료 내기 &amp; 이메일 답변</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>재조립 일정 변경</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>강사부가 보내준 강의 내용 정리</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>401 전화번호 바꾸기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>지옥션 상품 올리기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>11번가 상품 올리기 및 계정 정리하기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>무브코어 싸게 해치우기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>상표권 신청하기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>사업자 전화번호 정리하기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>추가 사업자 등록</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>바로쏨 보상받기</span></div>
+          <div class="task-item"><span class="opacity-40">☐</span><span>쿠쿠 확인</span></div>
         </div>
       </div>
     </section>
 
     <!-- 6. 정지 계정 테이블 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">🚫 정지 계정</h2>
-      <div class="card overflow-x-auto" style="padding:0">
+    <section class="card">
+      <h2 class="text-lg font-bold mb-4">🚫 정지 계정</h2>
+      <div class="overflow-x-auto">
         <table class="w-full text-sm">
           <thead>
-            <tr class="border-b border-gray-100 dark:border-gray-700">
-              <th class="text-left px-5 py-3 font-semibold text-gray-500 dark:text-gray-400">플랫폼</th>
-              <th class="text-left px-5 py-3 font-semibold text-gray-500 dark:text-gray-400">계정</th>
-              <th class="text-left px-5 py-3 font-semibold text-gray-500 dark:text-gray-400">사유 / 진행 상황</th>
+            <tr class="border-b border-gray-100 dark:border-gray-700 text-left">
+              <th class="py-2 pr-4 font-semibold opacity-60">플랫폼</th>
+              <th class="py-2 pr-4 font-semibold opacity-60">계정</th>
+              <th class="py-2 font-semibold opacity-60">사유 / 상태</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="border-b border-gray-50 dark:border-gray-800 hover:bg-red-50 dark:hover:bg-red-950 transition-colors">
-              <td class="px-5 py-3 text-red-600 font-semibold">쿠팡</td>
-              <td class="px-5 py-3 font-bold">222</td>
-              <td class="px-5 py-3 text-gray-600 dark:text-gray-400">5.27 소명자료 제출</td>
+            <tr class="border-b border-gray-50 dark:border-gray-800">
+              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
+              <td class="py-2 pr-4">222</td>
+              <td class="py-2 text-red-500">5.27 소명자료 제출</td>
             </tr>
-            <tr class="border-b border-gray-50 dark:border-gray-800 hover:bg-red-50 dark:hover:bg-red-950 transition-colors">
-              <td class="px-5 py-3 text-red-600 font-semibold">쿠팡</td>
-              <td class="px-5 py-3 font-bold">223</td>
-              <td class="px-5 py-3 text-gray-600 dark:text-gray-400">계정 판매 자격 요건</td>
+            <tr class="border-b border-gray-50 dark:border-gray-800">
+              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
+              <td class="py-2 pr-4">223</td>
+              <td class="py-2">계정 판매 자격 요건</td>
             </tr>
-            <tr class="border-b border-gray-50 dark:border-gray-800 hover:bg-red-50 dark:hover:bg-red-950 transition-colors">
-              <td class="px-5 py-3 text-red-600 font-semibold">쿠팡</td>
-              <td class="px-5 py-3 font-bold">225</td>
-              <td class="px-5 py-3 text-gray-600 dark:text-gray-400">연관계정 / 5.27 메일 다시 보냄</td>
+            <tr class="border-b border-gray-50 dark:border-gray-800">
+              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
+              <td class="py-2 pr-4">225</td>
+              <td class="py-2">연관계정 / 5.27 메일 다시보냄</td>
             </tr>
-            <tr class="hover:bg-red-50 dark:hover:bg-red-950 transition-colors">
-              <td class="px-5 py-3 text-red-600 font-semibold">쿠팡</td>
-              <td class="px-5 py-3 font-bold">403</td>
-              <td class="px-5 py-3 text-gray-600 dark:text-gray-400">판매자 계정 판매 자격</td>
+            <tr>
+              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
+              <td class="py-2 pr-4">403</td>
+              <td class="py-2">판매자 계정 판매 자격</td>
             </tr>
           </tbody>
         </table>
@@ -315,61 +219,88 @@
       <h2 class="text-lg font-bold mb-3">💡 오늘의 소싱 아이디어</h2>
       <div class="sourcing-card">
         <div class="flex flex-wrap items-center gap-3 mb-3">
-          <span class="bg-pink-100 dark:bg-pink-900 text-pink-700 dark:text-pink-300 text-xs font-bold px-3 py-1 rounded-full">카테고리</span>
-          <span class="font-bold">반려동물 용품</span>
+          <span class="text-xs font-bold bg-pink-500 text-white px-2.5 py-0.5 rounded-full">카테고리</span>
+          <span class="font-bold text-pink-700 dark:text-pink-300">반려동물 용품</span>
         </div>
-        <div class="flex flex-wrap items-center gap-3 mb-3">
-          <span class="bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 text-xs font-bold px-3 py-1 rounded-full">추천 상품</span>
-          <span class="font-semibold text-lg">노즈워크 매트</span>
+        <div class="flex flex-wrap items-center gap-3 mb-4">
+          <span class="text-xs font-bold bg-orange-400 text-white px-2.5 py-0.5 rounded-full">추천 상품</span>
+          <span class="font-black text-xl">🐾 노즈워크 매트</span>
         </div>
-        <div class="flex items-start gap-3 mb-2">
-          <span class="bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 text-xs font-bold px-3 py-1 rounded-full shrink-0">이유</span>
-          <span class="text-sm leading-relaxed">쿠팡·스마트스토어 월 검색 1,500+건, 1688 원가 3,000원대, 판매가 15,000~25,000원으로 마진 3~5배 확보 가능. 반려동물 시장 지속 성장 + 계절 무관 상시 수요.</span>
-        </div>
-        <p class="text-xs text-gray-400 dark:text-gray-500 mt-3 italic">※ 실시간 데이터 아님 — AI 자체 지식 기반</p>
+        <p class="text-sm leading-relaxed opacity-80">한국 반려동물 시장 고속 성장 중 · 노즈워크 키워드 조회수 1,500+개로 검증된 틈새 수요 · 알리/타오바오 소싱 원가 대비 한국 마진율 3~5배 이상 확보 가능 · Notion 메모에 이미 1688 소싱 링크 3개 확보됨 — 즉시 실행 가능</p>
       </div>
     </section>
 
     <!-- 8. 메모 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">📝 메모</h2>
-      <div class="card space-y-3">
-        <div class="flex items-start gap-2 text-sm">
-          <span class="text-gray-400 shrink-0 mt-0.5">•</span>
-          <div>
-            <span class="font-medium">지옥션 캐시 업로드 전 해외설정</span>
-            <a href="https://cafe.naver.com/f-e/cafes/30554171/articles/17059?referrerAllArticles=true" target="_blank" rel="noopener" class="text-blue-500 dark:text-blue-400 underline ml-2 text-xs">→ 네이버 카페 링크</a>
-          </div>
+    <section class="card">
+      <h2 class="text-lg font-bold mb-4">📝 메모</h2>
+      <div class="space-y-3 text-sm">
+        <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <p class="font-semibold mb-1">지옥션 캐시 업로드 전 해외설정</p>
+          <a href="https://cafe.naver.com/f-e/cafes/30554171/articles/17059?referrerAllArticles=true" target="_blank" rel="noopener" class="text-blue-500 text-xs break-all hover:underline">cafe.naver.com/f-e/cafes/30554171/articles/17059</a>
         </div>
-        <div class="flex items-start gap-2 text-sm">
-          <span class="text-gray-400 shrink-0 mt-0.5">•</span>
-          <div>
-            <span class="font-medium">소싱: 노즈워크</span>
-            <span class="text-gray-500 dark:text-gray-400 ml-2 text-xs">1688 상품 3건 확인 필요</span>
-          </div>
-        </div>
-        <div class="flex items-start gap-2 text-sm">
-          <span class="text-gray-400 shrink-0 mt-0.5">•</span>
-          <div>
-            <span class="font-medium">메인키워드: 노즈워크</span>
-            <span class="inline-block bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 text-xs font-bold px-2 py-0.5 rounded ml-2">→ 1,500개</span>
-          </div>
+        <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+          <p class="font-semibold mb-2">소싱: 노즈워크 (1688 링크)</p>
+          <ul class="space-y-1.5 text-xs">
+            <li><a href="https://detail.1688.com/offer/1045517671647.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/1045517671647.html</a></li>
+            <li><a href="https://detail.1688.com/offer/1034391150685.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/1034391150685.html</a></li>
+            <li><a href="https://detail.1688.com/offer/997172604631.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/997172604631.html</a></li>
+          </ul>
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">메인키워드: 노즈워크 → 1,500개</p>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="text-center text-xs text-gray-400 dark:text-gray-600 py-6 border-t border-gray-100 dark:border-gray-800">
-      <p class="mb-1">🌅 아침 브리핑 · 2026-05-31 (일) · 자동 생성</p>
-      <p><a href="https://dan-korean.github.io/morning-brief/" class="underline hover:text-gray-600 transition-colors">dan-korean.github.io/morning-brief</a></p>
+    <!-- 9. Footer -->
+    <footer class="text-center text-xs opacity-50 py-4">
+      생성: 2026-06-01 KST · <a href="https://dan-korean.github.io/morning-brief/" class="hover:underline">morning-brief</a>
     </footer>
 
   </div>
 
-<script>
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
-}
-</script>
+  <script>
+  if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+
+  function aqiLevel(v){
+    if(v<=50) return ['🟢 좋음','#22c55e'];
+    if(v<=100) return ['🟡 보통','#eab308'];
+    if(v<=150) return ['🟠 나쁜','#f97316'];
+    return ['🔴 매우나쁜','#ef4444'];
+  }
+  function wcode(c){
+    const m={0:'맑음',1:'대체로 맑음',2:'구름 조금',3:'흐림',45:'안개',48:'안개',
+      51:'약한 이슬비',53:'이슬비',55:'강한 이슬비',61:'약한 비',63:'비',65:'강한 비',
+      71:'약한 눈',73:'눈',75:'강한 눈',80:'소나기',81:'소나기',82:'강한 소나기',95:'천둥번개'};
+    return m[c]||'—';
+  }
+  async function loadWeather(){
+    try{
+      const u='https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,apparent_temperature,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul&forecast_days=1';
+      const r=await fetch(u).then(x=>x.json());
+      document.getElementById('weather-temp').textContent=Math.round(r.current.temperature_2m)+'°';
+      document.getElementById('weather-desc').textContent=wcode(r.current.weather_code);
+      document.getElementById('weather-feels').textContent=Math.round(r.current.apparent_temperature)+'°';
+      document.getElementById('weather-range').textContent='최고 '+Math.round(r.daily.temperature_2m_max[0])+'° / 최저 '+Math.round(r.daily.temperature_2m_min[0])+'°';
+    }catch(e){document.getElementById('weather-desc').textContent='로딩 실패';}
+  }
+  async function loadAqi(){
+    try{
+      const r=await fetch('https://api.waqi.info/feed/seoul/?token=demo').then(x=>x.json());
+      const aqi=r.data.aqi; const pm25=r.data.iaqi.pm25?r.data.iaqi.pm25.v:'—';
+      const [label,color]=aqiLevel(aqi);
+      const el=document.getElementById('aqi-val'); el.textContent=aqi; el.style.color=color;
+      document.getElementById('aqi-label').textContent=label;
+      document.getElementById('aqi-pm25').textContent=pm25+' µg/m³';
+    }catch(e){document.getElementById('aqi-label').textContent='로딩 실패';}
+  }
+  async function loadFx(){
+    try{
+      const r=await fetch('https://open.er-api.com/v6/latest/USD').then(x=>x.json());
+      const krw=r.rates.KRW; const cny=r.rates.CNY;
+      document.getElementById('usd-krw').textContent=Math.round(krw).toLocaleString()+' 원';
+      document.getElementById('cny-krw').textContent=Math.round(krw/cny).toLocaleString()+' 원';
+    }catch(e){document.getElementById('usd-krw').textContent='로딩 실패';}
+  }
+  window.addEventListener('load',()=>{loadWeather();loadAqi();loadFx();});
+  </script>
 </body>
 </html>
