@@ -1,306 +1,549 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌅 아침 브리핑</title>
+  <title>아침 브리핑 — 2026-06-01</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#fcb69f">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="아침 브리핑">
   <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans KR', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
   <style>
     body { font-family: 'Noto Sans KR', sans-serif; }
-    .hero-grad { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a8b 100%); }
-    @media (prefers-color-scheme: dark) { .hero-grad { background: linear-gradient(135deg, #1a0f0a 0%, #3a1e15 50%, #4a2820 100%); } }
-    .chip { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; border-radius: 9999px; background: rgba(255,255,255,0.75); backdrop-filter: blur(10px); font-weight: 600; font-size: 0.92rem; }
-    @media (prefers-color-scheme: dark) { .chip { background: rgba(255,255,255,0.1); color: #fff; } }
-    .card { background: white; border-radius: 1rem; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-    @media (prefers-color-scheme: dark) { .card { background: #1f2937; } }
-    .day-card { padding: 0.85rem 0.6rem; border-radius: 0.6rem; background: white; min-height: 90px; font-size: 0.85rem; }
-    .day-card.today { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
-    .day-card.holiday { background: #fef2f2; }
-    @media (prefers-color-scheme: dark) { .day-card { background: #1f2937; } .day-card.today { background: linear-gradient(135deg, #78350f 0%, #92400e 100%); } .day-card.holiday { background: #2c1518; } }
-    .task-item { display: flex; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); font-size: 0.92rem; }
-    .task-item:last-child { border-bottom: none; }
-    .summary-card { background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.7)); border-radius: 1rem; padding: 1.3rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-    @media (prefers-color-scheme: dark) { .summary-card { background: linear-gradient(135deg, rgba(31,41,55,0.9), rgba(31,41,55,0.7)); } }
-    .sourcing-card { background: linear-gradient(135deg, #fdf2f8 0%, #fff7ed 100%); border-left: 4px solid #ec4899; border-radius: 1rem; padding: 1.7rem; }
-    @media (prefers-color-scheme: dark) { .sourcing-card { background: linear-gradient(135deg, #500724 0%, #431407 100%); } }
+    .hero-grad { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff9a9e 100%); }
+    @media (prefers-color-scheme: dark) {
+      .hero-grad { background: linear-gradient(135deg, #2d1a10 0%, #4a2418 50%, #5a2828 100%); }
+    }
+    .sync-check:disabled { opacity: 0.5; cursor: wait; }
+    .sync-check:checked + span, .sync-check:checked ~ span { opacity: 0.45; text-decoration: line-through; }
+    .day-chip {
+      display: inline-flex; flex-direction: column; align-items: center;
+      padding: 5px 9px; border-radius: 10px; font-size: 0.7rem; font-weight: 500;
+      min-width: 40px; line-height: 1.3;
+    }
+    .summary-card { border-radius: 14px; padding: 14px; }
+    .section-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 6px; }
+    .event-item { padding: 7px 11px; border-radius: 9px; margin-bottom: 5px; }
+    table.base-table { width: 100%; border-collapse: collapse; }
+    table.base-table th { font-size: 0.7rem; color: #9ca3af; padding: 5px 10px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+    table.base-table td { padding: 7px 10px; border-bottom: 1px solid #f3f4f6; vertical-align: middle; font-size: 0.875rem; }
+    @media (prefers-color-scheme: dark) {
+      table.base-table th { color: #6b7280; border-bottom-color: #374151; }
+      table.base-table td { border-bottom-color: #1f2937; }
+    }
+    table.base-table tr:last-child td { border-bottom: none; }
   </style>
 </head>
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 min-h-screen">
 
-  <!-- 1. Hero -->
-  <section class="hero-grad px-4 pt-10 pb-8">
-    <div class="max-w-2xl mx-auto">
-      <p class="text-sm font-semibold opacity-70 mb-1">2026년 6월 1일 월요일</p>
-      <h1 class="text-4xl font-black mb-6">🌅 아침 브리핑</h1>
+<!-- ① Hero -->
+<div class="hero-grad px-4 pt-8 pb-6">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-xs font-semibold text-amber-800 dark:text-amber-300 opacity-70 tracking-wide uppercase">Monday &middot; June 1, 2026</p>
+    <h1 class="text-2xl font-bold text-gray-800 dark:text-white mt-1">&#x1F305; 아침 브리핑</h1>
 
-      <!-- 7 chip (6/1~6/7) -->
-      <div class="flex flex-wrap gap-2 mb-6">
-        <span class="chip" style="background:rgba(251,191,36,0.85);">📌 6/1 월 오늘</span>
-        <span class="chip">6/2 화</span>
-        <span class="chip">🗓 6/3 수</span>
-        <span class="chip">🗓🗓 6/4 목</span>
-        <span class="chip">6/5 금</span>
-        <span class="chip" style="background:rgba(254,202,202,0.85);">🚩 6/6 토</span>
-        <span class="chip">6/7 일</span>
+    <!-- 7일 칩 -->
+    <div class="flex gap-2 mt-4 overflow-x-auto pb-1">
+      <div class="day-chip bg-orange-500 text-white flex-shrink-0">
+        <span>월</span><span class="font-bold text-base leading-tight">1</span>
+        <span class="text-xs opacity-80">오늘</span>
       </div>
+      <div class="day-chip bg-white/50 dark:bg-white/10 text-gray-700 dark:text-gray-300 flex-shrink-0">
+        <span>화</span><span class="font-medium">2</span>
+      </div>
+      <div class="day-chip bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 flex-shrink-0">
+        <span>수</span><span class="font-medium">3</span>
+        <span class="text-xs">&#x1F4C5;</span>
+      </div>
+      <div class="day-chip bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 ring-2 ring-blue-400 flex-shrink-0">
+        <span>목</span><span class="font-medium">4</span>
+        <span class="text-xs">&#x1F4C5;</span>
+      </div>
+      <div class="day-chip bg-white/50 dark:bg-white/10 text-gray-700 dark:text-gray-300 flex-shrink-0">
+        <span>금</span><span class="font-medium">5</span>
+      </div>
+      <div class="day-chip bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 flex-shrink-0">
+        <span>토</span><span class="font-medium">6</span>
+        <span class="text-xs">현충일</span>
+      </div>
+      <div class="day-chip bg-white/40 dark:bg-white/5 text-gray-500 dark:text-gray-500 flex-shrink-0">
+        <span>일</span><span class="font-medium">7</span>
+      </div>
+    </div>
 
-      <!-- 오늘 강조 -->
-      <div class="bg-white/70 dark:bg-gray-800/70 backdrop-blur rounded-xl p-4">
-        <p class="text-xs font-bold opacity-60 uppercase tracking-wider mb-2">🎯 오늘 강조</p>
-        <p class="font-semibold">오늘(6/1) 예정 일정 없음 · 이번 주 주요: 6/3 어린이집 모임, 6/4 강사부 강의</p>
-        <p class="text-sm opacity-70 mt-1">Notion 할일: 강사부 강의 내용 정리 · 재조립 일정 변경 · 지옥션/11번가 상품 올리기</p>
+    <!-- 오늘 강조 -->
+    <div class="mt-4 bg-white/50 dark:bg-black/25 rounded-xl p-3 backdrop-blur-sm">
+      <p class="text-xs font-bold text-gray-700 dark:text-gray-200 uppercase tracking-wide">&#x1F3AF; 오늘 강조</p>
+      <p class="text-sm text-gray-700 dark:text-gray-300 mt-1 leading-relaxed">
+        오늘 일정 없음 &middot; 매일 할일(이메일 &amp; 대기중) 체크 먼저 &middot; 목(6/4) 강사부 강의 13:00–20:00 사전 준비
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="max-w-2xl mx-auto px-4 py-6 space-y-7">
+
+  <!-- ② 오늘 한눈에 -->
+  <section>
+    <h2 class="section-title">&#x2600;&#xFE0F; 오늘 한눈에</h2>
+    <div class="grid grid-cols-3 gap-3">
+      <div class="summary-card bg-sky-50 dark:bg-sky-950/40 col-span-1">
+        <p class="text-xs text-sky-500 font-semibold mb-2">날씨 &middot; 서울</p>
+        <p class="text-3xl font-bold text-sky-700 dark:text-sky-300" id="weather-temp">…</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-0.5" id="weather-desc">로딩중</p>
+        <p class="text-xs text-gray-400 mt-1">체감 <span id="weather-feels">…</span></p>
+        <p class="text-xs text-gray-400" id="weather-range"></p>
+      </div>
+      <div class="summary-card bg-emerald-50 dark:bg-emerald-950/40 col-span-1">
+        <p class="text-xs text-emerald-600 font-semibold mb-2">미세먼지 AQI</p>
+        <p class="text-3xl font-bold" id="aqi-val">…</p>
+        <p class="text-sm mt-0.5" id="aqi-label">로딩중</p>
+        <p class="text-xs text-gray-400 mt-1">PM2.5 <span id="aqi-pm25">…</span></p>
+      </div>
+      <div class="summary-card bg-amber-50 dark:bg-amber-950/40 col-span-1">
+        <p class="text-xs text-amber-600 font-semibold mb-2">환율</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">USD/KRW</p>
+        <p class="text-sm font-bold text-amber-700 dark:text-amber-300" id="usd-krw">…</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">CNY/KRW</p>
+        <p class="text-sm font-bold text-amber-700 dark:text-amber-300" id="cny-krw">…</p>
       </div>
     </div>
   </section>
 
-  <div class="max-w-2xl mx-auto px-4 py-6 space-y-6">
+  <!-- ③ 이번 주 일정 -->
+  <section>
+    <h2 class="section-title">&#x1F5D3; 이번 주 일정</h2>
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm divide-y divide-gray-100 dark:divide-gray-700">
 
-    <!-- 2. 오늘 한눈에 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3 opacity-80">🔍 오늘 한눈에</h2>
-      <div class="grid grid-cols-3 gap-3">
-        <div class="summary-card">
-          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">🌤 날씨</div>
-          <div id="weather-temp" class="text-3xl font-black">—</div>
-          <div class="text-sm opacity-70"><span id="weather-desc">로딩...</span> · 체감 <span id="weather-feels">—</span></div>
-          <div id="weather-range" class="text-xs opacity-60 mt-2">—</div>
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] flex flex-col items-center pt-0.5">
+          <span class="text-xs font-bold bg-orange-500 text-white rounded-full px-2 py-0.5">오늘</span>
+          <span class="text-xs text-gray-400 mt-0.5">06/01 월</span>
         </div>
-        <div class="summary-card">
-          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">💨 미세먼지</div>
-          <div id="aqi-val" class="text-3xl font-black">—</div>
-          <div class="text-sm opacity-70"><span id="aqi-label">로딩...</span> · PM2.5 <span id="aqi-pm25">—</span></div>
+        <div class="flex-1 text-sm text-gray-400 dark:text-gray-500 italic pt-1">일정 없음</div>
+      </div>
+
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center">
+          <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">06/02 화</p>
         </div>
-        <div class="summary-card">
-          <div class="text-xs opacity-60 mb-1 font-bold uppercase tracking-wider">💱 환율</div>
-          <div class="text-lg font-bold">USD <span id="usd-krw">—</span></div>
-          <div class="text-lg font-bold">CNY <span id="cny-krw">—</span></div>
+        <div class="flex-1 text-sm text-gray-400 dark:text-gray-500 italic">일정 없음</div>
+      </div>
+
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center pt-0.5">
+          <p class="text-xs text-blue-600 dark:text-blue-400 font-bold">06/03 수</p>
+        </div>
+        <div class="flex-1">
+          <div class="event-item bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200">
+            <p class="text-sm font-semibold">어린이집 모임</p>
+            <p class="text-xs opacity-70">12:00 – 17:00</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 3. 이번 주 일정 -->
-    <section class="card">
-      <h2 class="text-lg font-bold mb-4">🗓 이번 주 일정</h2>
-      <div class="grid grid-cols-7 gap-1.5 text-center">
-        <div class="day-card today">
-          <div class="text-xs font-bold opacity-60">월</div>
-          <div class="font-bold text-sm mt-0.5">6/1</div>
-          <div class="text-xs mt-1 text-amber-700 dark:text-amber-300 font-bold">오늘</div>
-          <div class="text-xs mt-1 opacity-50">없음</div>
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center pt-0.5">
+          <p class="text-xs text-purple-600 dark:text-purple-400 font-bold">06/04 목</p>
         </div>
-        <div class="day-card">
-          <div class="text-xs font-bold opacity-60">화</div>
-          <div class="font-bold text-sm mt-0.5">6/2</div>
-          <div class="text-xs mt-1 opacity-50">없음</div>
-        </div>
-        <div class="day-card">
-          <div class="text-xs font-bold opacity-60">수</div>
-          <div class="font-bold text-sm mt-0.5">6/3</div>
-          <div class="text-xs mt-2 text-blue-600 dark:text-blue-400 font-semibold leading-tight">어린이집<br>모임<br>12~17시</div>
-        </div>
-        <div class="day-card">
-          <div class="text-xs font-bold opacity-60">목</div>
-          <div class="font-bold text-sm mt-0.5">6/4</div>
-          <div class="text-xs mt-1 text-blue-500 dark:text-blue-400 font-semibold leading-tight">재조립<br>지연<br>0~1시</div>
-          <div class="text-xs mt-1 text-purple-600 dark:text-purple-400 font-semibold leading-tight">강사부<br>강의<br>13~20시</div>
-        </div>
-        <div class="day-card">
-          <div class="text-xs font-bold opacity-60">금</div>
-          <div class="font-bold text-sm mt-0.5">6/5</div>
-          <div class="text-xs mt-1 opacity-50">없음</div>
-        </div>
-        <div class="day-card holiday">
-          <div class="text-xs font-bold text-red-500">토</div>
-          <div class="font-bold text-sm mt-0.5 text-red-600">6/6</div>
-          <div class="text-xs mt-1 text-red-500 font-bold">🚩현충일</div>
-        </div>
-        <div class="day-card">
-          <div class="text-xs font-bold text-red-400">일</div>
-          <div class="font-bold text-sm mt-0.5 text-red-400">6/7</div>
-          <div class="text-xs mt-1 opacity-50">없음</div>
+        <div class="flex-1 space-y-1.5">
+          <div class="event-item bg-purple-50 dark:bg-purple-900/30 text-purple-800 dark:text-purple-200">
+            <p class="text-sm font-semibold">재조립 지연</p>
+            <p class="text-xs opacity-70">00:00 – 01:00</p>
+          </div>
+          <div class="event-item bg-orange-50 dark:bg-orange-900/30 text-orange-800 dark:text-orange-200">
+            <p class="text-sm font-semibold">강사부 강의</p>
+            <p class="text-xs opacity-70">13:00 – 20:00</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 4. 프로젝트 그리드 -->
-    <section class="card">
-      <h2 class="text-lg font-bold mb-4">📁 프로젝트</h2>
-      <div class="space-y-1">
-        <div class="task-item"><span class="opacity-40">☐</span><span>구매대행 대량 - 직접</span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>구매대행 수동 - 선민아</span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>사입 <span class="opacity-60 text-sm">— 공부해야함, 소싱해야함</span></span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>공구 전문몰(테크리움) <span class="opacity-60 text-sm">— 알리 상세페이지 변환 프로그램 진행중</span></span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>릴스 동영상 변환 프로그램 만들기</span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>중국 상세페이지 변환 프로그램 만들기</span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>쿠팡 구매대행 조회수 확인해서 올리기 <span class="opacity-60 text-sm">— 수동 &amp; 일반</span></span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>불사자 스스 카테고리 정리 <span class="opacity-60 text-sm">— 1개씩 만들기</span></span></div>
-        <div class="task-item"><span class="opacity-40">☐</span><span>스마트스토어 카피</span></div>
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center">
+          <p class="text-xs text-gray-500 dark:text-gray-400 font-medium">06/05 금</p>
+        </div>
+        <div class="flex-1 text-sm text-gray-400 dark:text-gray-500 italic">일정 없음</div>
       </div>
-    </section>
 
-    <!-- 5. 할일 3컬럼 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">✅ 할일</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="card">
-          <h3 class="font-bold text-sm mb-3 text-orange-500">📅 매일 할일</h3>
-          <div class="task-item"><span class="opacity-40">☐</span><span>이메일 확인</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>대기중 확인</span></div>
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center pt-0.5">
+          <p class="text-xs text-red-500 font-bold">06/06 토</p>
         </div>
-        <div class="card">
-          <h3 class="font-bold text-sm mb-3 text-blue-500">📆 주간 할일</h3>
-          <div class="task-item"><span class="opacity-40">☐</span><span>매주 소싱 2개</span></div>
-        </div>
-        <div class="card">
-          <h3 class="font-bold text-sm mb-3 text-green-600">📋 일반 할일</h3>
-          <div class="task-item"><span class="opacity-40">☐</span><span>알리 카드 확인하기 → 롯데카드 되는지</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>배터리 과태료 내기 &amp; 이메일 답변</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>재조립 일정 변경</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>강사부가 보내준 강의 내용 정리</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>401 전화번호 바꾸기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>지옥션 상품 올리기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>11번가 상품 올리기 및 계정 정리하기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>무브코어 싸게 해치우기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>상표권 신청하기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>사업자 전화번호 정리하기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>추가 사업자 등록</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>바로쏨 보상받기</span></div>
-          <div class="task-item"><span class="opacity-40">☐</span><span>쿠쿠 확인</span></div>
+        <div class="flex-1">
+          <div class="event-item bg-red-50 dark:bg-red-900/25 text-red-700 dark:text-red-300">
+            <p class="text-sm font-semibold">&#x1F38C; 현충일</p>
+            <p class="text-xs opacity-70">공휴일 — 법정 공휴일</p>
+          </div>
         </div>
       </div>
-    </section>
 
-    <!-- 6. 정지 계정 테이블 -->
-    <section class="card">
-      <h2 class="text-lg font-bold mb-4">🚫 정지 계정</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-gray-100 dark:border-gray-700 text-left">
-              <th class="py-2 pr-4 font-semibold opacity-60">플랫폼</th>
-              <th class="py-2 pr-4 font-semibold opacity-60">계정</th>
-              <th class="py-2 font-semibold opacity-60">사유 / 상태</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="border-b border-gray-50 dark:border-gray-800">
-              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
-              <td class="py-2 pr-4">222</td>
-              <td class="py-2 text-red-500">5.27 소명자료 제출</td>
-            </tr>
-            <tr class="border-b border-gray-50 dark:border-gray-800">
-              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
-              <td class="py-2 pr-4">223</td>
-              <td class="py-2">계정 판매 자격 요건</td>
-            </tr>
-            <tr class="border-b border-gray-50 dark:border-gray-800">
-              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
-              <td class="py-2 pr-4">225</td>
-              <td class="py-2">연관계정 / 5.27 메일 다시보냄</td>
-            </tr>
-            <tr>
-              <td class="py-2 pr-4 font-bold text-orange-500">쿠팡</td>
-              <td class="py-2 pr-4">403</td>
-              <td class="py-2">판매자 계정 판매 자격</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="flex gap-3 items-start p-3">
+        <div class="min-w-[58px] text-center">
+          <p class="text-xs text-gray-400 dark:text-gray-500 font-medium">06/07 일</p>
+        </div>
+        <div class="flex-1 text-sm text-gray-400 dark:text-gray-500 italic">일정 없음</div>
       </div>
-    </section>
 
-    <!-- 7. 소싱 아이디어 -->
-    <section>
-      <h2 class="text-lg font-bold mb-3">💡 오늘의 소싱 아이디어</h2>
-      <div class="sourcing-card">
-        <div class="flex flex-wrap items-center gap-3 mb-3">
-          <span class="text-xs font-bold bg-pink-500 text-white px-2.5 py-0.5 rounded-full">카테고리</span>
-          <span class="font-bold text-pink-700 dark:text-pink-300">반려동물 용품</span>
+    </div>
+  </section>
+
+  <!-- ④ 프로젝트 그리드 -->
+  <section>
+    <h2 class="section-title">&#x1F4C1; 프로젝트</h2>
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm">
+      <table class="base-table">
+        <thead><tr>
+          <th class="w-9 text-center">&#x2713;</th>
+          <th>프로젝트</th>
+          <th>비고</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="구매대행 대량 - 직접" onchange="syncCheck(this)">
+            </td>
+            <td><span>구매대행 대량</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">직접</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="구매대행 수동 - 선민아" onchange="syncCheck(this)">
+            </td>
+            <td><span>구매대행 수동</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">선민아</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="사입  —  공부해야함, 소싱해야함" onchange="syncCheck(this)">
+            </td>
+            <td><span>사입</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">공부해야함, 소싱해야함</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="공구 전문몰(테크리움)  —  알리 상세페이지 변환 프로그램 진행중" onchange="syncCheck(this)">
+            </td>
+            <td><span>공구 전문몰(테크리움)</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">알리 상세페이지 변환 프로그램 진행중</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="릴스 동영상 변환 프로그램 만들기" onchange="syncCheck(this)">
+            </td>
+            <td><span>릴스 동영상 변환 프로그램 만들기</span></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="중국 상세페이지 변환 프로그램 만들기" onchange="syncCheck(this)">
+            </td>
+            <td><span>중국 상세페이지 변환 프로그램 만들기</span></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="쿠팡 구매대행 조회수 확인해서 올리기  —  수동 &amp; 일반" onchange="syncCheck(this)">
+            </td>
+            <td><span>쿠팡 구매대행 조회수 확인해서 올리기</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">수동 &amp; 일반</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="불사자 스스 카테고리 정리  —  1개씩 만들기" onchange="syncCheck(this)">
+            </td>
+            <td><span>불사자 스스 카테고리 정리</span></td>
+            <td class="text-gray-400 dark:text-gray-500 text-xs">1개씩 만들기</td>
+          </tr>
+          <tr>
+            <td class="text-center">
+              <input type="checkbox" class="w-4 h-4 sync-check accent-orange-500" data-text="스마트스토어 카피" onchange="syncCheck(this)">
+            </td>
+            <td><span>스마트스토어 카피</span></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ⑤ 할일 3컬럼 -->
+  <section>
+    <h2 class="section-title">&#x2705; 할일</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+
+      <!-- 매일 할일 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+        <h3 class="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-3">&#x1F4C5; 매일</h3>
+        <div class="space-y-2.5">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-sky-500 flex-shrink-0" data-text="이메일 확인" onchange="syncCheck(this)">
+            <span class="text-sm">이메일 확인</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-sky-500 flex-shrink-0" data-text="대기중 확인" onchange="syncCheck(this)">
+            <span class="text-sm">대기중 확인</span>
+          </label>
         </div>
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <span class="text-xs font-bold bg-orange-400 text-white px-2.5 py-0.5 rounded-full">추천 상품</span>
-          <span class="font-black text-xl">🐾 노즈워크 매트</span>
-        </div>
-        <p class="text-sm leading-relaxed opacity-80">한국 반려동물 시장 고속 성장 중 · 노즈워크 키워드 조회수 1,500+개로 검증된 틈새 수요 · 알리/타오바오 소싱 원가 대비 한국 마진율 3~5배 이상 확보 가능 · Notion 메모에 이미 1688 소싱 링크 3개 확보됨 — 즉시 실행 가능</p>
       </div>
-    </section>
 
-    <!-- 8. 메모 -->
-    <section class="card">
-      <h2 class="text-lg font-bold mb-4">📝 메모</h2>
-      <div class="space-y-3 text-sm">
-        <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-          <p class="font-semibold mb-1">지옥션 캐시 업로드 전 해외설정</p>
-          <a href="https://cafe.naver.com/f-e/cafes/30554171/articles/17059?referrerAllArticles=true" target="_blank" rel="noopener" class="text-blue-500 text-xs break-all hover:underline">cafe.naver.com/f-e/cafes/30554171/articles/17059</a>
-        </div>
-        <div class="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-          <p class="font-semibold mb-2">소싱: 노즈워크 (1688 링크)</p>
-          <ul class="space-y-1.5 text-xs">
-            <li><a href="https://detail.1688.com/offer/1045517671647.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/1045517671647.html</a></li>
-            <li><a href="https://detail.1688.com/offer/1034391150685.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/1034391150685.html</a></li>
-            <li><a href="https://detail.1688.com/offer/997172604631.html" target="_blank" rel="noopener" class="text-blue-500 hover:underline break-all">detail.1688.com/offer/997172604631.html</a></li>
-          </ul>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">메인키워드: 노즈워크 → 1,500개</p>
+      <!-- 주간 할일 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+        <h3 class="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-3">&#x1F4C6; 주간</h3>
+        <div class="space-y-2.5">
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-violet-500 flex-shrink-0" data-text="매주 소싱 2개" onchange="syncCheck(this)">
+            <span class="text-sm">매주 소싱 2개</span>
+          </label>
         </div>
       </div>
-    </section>
 
-    <!-- 9. Footer -->
-    <footer class="text-center text-xs opacity-50 py-4">
-      생성: 2026-06-01 KST · <a href="https://dan-korean.github.io/morning-brief/" class="hover:underline">morning-brief</a>
-    </footer>
+      <!-- 일반 할일 -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm">
+        <h3 class="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-3">&#x1F4CB; 일반</h3>
+        <div class="space-y-2">
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0 mt-0.5" data-text="강사부가 보내준 강의 내용 정리" onchange="syncCheck(this)">
+            <span class="text-sm">강사부가 보내준 강의 내용 정리</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="401 전화번호 바꾸기" onchange="syncCheck(this)">
+            <span class="text-sm">401 전화번호 바꾸기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="지옥션 상품 올리기" onchange="syncCheck(this)">
+            <span class="text-sm">지옥션 상품 올리기</span>
+          </label>
+          <label class="flex items-start gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0 mt-0.5" data-text="11번가 상품 올리기 및 계정 정리하기" onchange="syncCheck(this)">
+            <span class="text-sm">11번가 상품 올리기 및 계정 정리하기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="무브코어 싸게 해치우기" onchange="syncCheck(this)">
+            <span class="text-sm">무브코어 싸게 해치우기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="상표권 신청하기" onchange="syncCheck(this)">
+            <span class="text-sm">상표권 신청하기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="사업자 전화번호 정리하기" onchange="syncCheck(this)">
+            <span class="text-sm">사업자 전화번호 정리하기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="추가 사업자 등록" onchange="syncCheck(this)">
+            <span class="text-sm">추가 사업자 등록</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="바로쏨 보상받기" onchange="syncCheck(this)">
+            <span class="text-sm">바로쏨 보상받기</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="쿠쿠 확인" onchange="syncCheck(this)">
+            <span class="text-sm">쿠쿠 확인</span>
+          </label>
+          <label class="flex items-center gap-2 cursor-pointer">
+            <input type="checkbox" class="w-4 h-4 sync-check accent-emerald-500 flex-shrink-0" data-text="재조립 일정 만들기" onchange="syncCheck(this)">
+            <span class="text-sm">재조립 일정 만들기</span>
+          </label>
+        </div>
+      </div>
 
-  </div>
+    </div>
+  </section>
 
-  <script>
-  if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+  <!-- ⑥ 정지 계정 -->
+  <section>
+    <h2 class="section-title">&#x1F6AB; 정지 계정 (쿠팡)</h2>
+    <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-sm">
+      <table class="base-table">
+        <thead><tr>
+          <th class="w-20">계정</th>
+          <th>상태 / 조치</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td class="font-mono font-bold text-red-600 dark:text-red-400">222</td>
+            <td class="text-gray-600 dark:text-gray-400">5.27 소명자료 제출</td>
+          </tr>
+          <tr>
+            <td class="font-mono font-bold text-red-600 dark:text-red-400">223</td>
+            <td class="text-gray-600 dark:text-gray-400">계정 판매 자격 요건</td>
+          </tr>
+          <tr>
+            <td class="font-mono font-bold text-red-600 dark:text-red-400">225</td>
+            <td class="text-gray-600 dark:text-gray-400">연관계정 / 5.27 메일 다시보냄</td>
+          </tr>
+          <tr>
+            <td class="font-mono font-bold text-red-600 dark:text-red-400">403</td>
+            <td class="text-gray-600 dark:text-gray-400">판매자 계정 판매 자격</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-  function aqiLevel(v){
-    if(v<=50) return ['🟢 좋음','#22c55e'];
-    if(v<=100) return ['🟡 보통','#eab308'];
-    if(v<=150) return ['🟠 나쁜','#f97316'];
-    return ['🔴 매우나쁜','#ef4444'];
+  <!-- ⑦ 소싱 아이디어 -->
+  <section>
+    <h2 class="section-title">&#x1F4A1; 소싱 아이디어</h2>
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-xl p-4 shadow-sm border border-amber-100 dark:border-amber-900">
+      <div class="flex items-start gap-3">
+        <span class="text-3xl leading-none mt-0.5">&#x1F43E;</span>
+        <div>
+          <span class="inline-block text-xs font-bold text-orange-600 dark:text-orange-400 bg-orange-100 dark:bg-orange-900/40 rounded-full px-2 py-0.5 mb-1">펫용품</span>
+          <p class="text-base font-bold text-gray-800 dark:text-gray-100">노즈워크 매트 / 후각 자극 패드</p>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mt-1 leading-relaxed">
+            메인키워드 월 1,500건 수요 확인 &middot; 1688 소싱 500–1,000원대 가능 &middot; 시즌 관계없는 스테디셀러로 마진 여지 충분
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 메모 -->
+  <section>
+    <h2 class="section-title">&#x1F4DD; 메모</h2>
+    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm space-y-4">
+      <div>
+        <p class="text-sm font-semibold text-gray-700 dark:text-gray-200">지옥션 캐시 업로드 전 해외설정</p>
+        <a href="https://cafe.naver.com/f-e/cafes/30554171/articles/17059?referrerAllArticles=true"
+           class="text-xs text-blue-500 hover:underline break-all mt-0.5 block" target="_blank" rel="noopener noreferrer">
+          cafe.naver.com/f-e/cafes/30554171/articles/17059
+        </a>
+      </div>
+      <hr class="border-gray-100 dark:border-gray-700">
+      <div>
+        <p class="text-sm font-semibold text-gray-700 dark:text-gray-200">소싱 메모: 노즈워크</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">1688 링크 3개 (detail.1688.com)</p>
+        <p class="text-xs text-gray-500 dark:text-gray-400">메인키워드: 노즈워크 → 월 1,500개</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-5 text-xs text-gray-400 dark:text-gray-600 border-t border-gray-100 dark:border-gray-800 mt-4">
+  <p>2026-06-01 KST 생성 &middot; <a href="https://dan-korean.github.io/morning-brief/" class="underline hover:text-gray-600 dark:hover:text-gray-400">morning-brief</a></p>
+</footer>
+
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+const WORKER_URL = 'https://morning-brief-sync.set2022.workers.dev/';
+
+async function syncCheck(cb) {
+  const text = cb.dataset.text;
+  const checked = cb.checked;
+  cb.disabled = true;
+  try {
+    const r = await fetch(WORKER_URL, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({text, checked})
+    });
+    const d = await r.json();
+    if (!d.success) {
+      cb.checked = !checked;
+      cb.title = '동기화 실패: ' + (d.error || 'unknown');
+      console.error('sync fail', d);
+    } else {
+      cb.title = '노션 동기화 완료';
+    }
+  } catch(e) {
+    cb.checked = !checked;
+    cb.title = '네트워크 에러';
+    console.error(e);
+  } finally {
+    cb.disabled = false;
   }
-  function wcode(c){
-    const m={0:'맑음',1:'대체로 맑음',2:'구름 조금',3:'흐림',45:'안개',48:'안개',
-      51:'약한 이슬비',53:'이슬비',55:'강한 이슬비',61:'약한 비',63:'비',65:'강한 비',
-      71:'약한 눈',73:'눈',75:'강한 눈',80:'소나기',81:'소나기',82:'강한 소나기',95:'천둥번개'};
-    return m[c]||'—';
+}
+
+function aqiLevel(v) {
+  if (v <= 50)  return ['좋음',    '#22c55e'];
+  if (v <= 100) return ['보통',    '#eab308'];
+  if (v <= 150) return ['나쁨',    '#f97316'];
+  return             ['매우나쁨',  '#ef4444'];
+}
+
+function wcode(c) {
+  const m = {
+    0:'맑음', 1:'대체로 맑음', 2:'구름 조금', 3:'흐림',
+    45:'안개', 48:'안개',
+    51:'약한 이슬비', 53:'이슬비', 55:'강한 이슬비',
+    61:'약한 비', 63:'비', 65:'강한 비',
+    71:'약한 눈', 73:'눈', 75:'강한 눈',
+    80:'소나기', 81:'소나기', 82:'강한 소나기', 95:'천둥번개'
+  };
+  return m[c] || '—';
+}
+
+async function loadWeather() {
+  try {
+    const r = await fetch(
+      'https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780' +
+      '&current=temperature_2m,apparent_temperature,weather_code' +
+      '&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul&forecast_days=1'
+    ).then(x => x.json());
+    document.getElementById('weather-temp').textContent  = Math.round(r.current.temperature_2m) + '°';
+    document.getElementById('weather-desc').textContent  = wcode(r.current.weather_code);
+    document.getElementById('weather-feels').textContent = Math.round(r.current.apparent_temperature) + '°';
+    document.getElementById('weather-range').textContent =
+      '최고 ' + Math.round(r.daily.temperature_2m_max[0]) + '° / 최저 ' + Math.round(r.daily.temperature_2m_min[0]) + '°';
+  } catch(e) {
+    document.getElementById('weather-desc').textContent = '로딩 실패';
   }
-  async function loadWeather(){
-    try{
-      const u='https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,apparent_temperature,weather_code&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FSeoul&forecast_days=1';
-      const r=await fetch(u).then(x=>x.json());
-      document.getElementById('weather-temp').textContent=Math.round(r.current.temperature_2m)+'°';
-      document.getElementById('weather-desc').textContent=wcode(r.current.weather_code);
-      document.getElementById('weather-feels').textContent=Math.round(r.current.apparent_temperature)+'°';
-      document.getElementById('weather-range').textContent='최고 '+Math.round(r.daily.temperature_2m_max[0])+'° / 최저 '+Math.round(r.daily.temperature_2m_min[0])+'°';
-    }catch(e){document.getElementById('weather-desc').textContent='로딩 실패';}
+}
+
+async function loadAqi() {
+  try {
+    const r = await fetch('https://api.waqi.info/feed/seoul/?token=demo').then(x => x.json());
+    const aqi  = r.data.aqi;
+    const pm25 = r.data.iaqi.pm25 ? r.data.iaqi.pm25.v : '—';
+    const [label, color] = aqiLevel(aqi);
+    const el = document.getElementById('aqi-val');
+    el.textContent = aqi;
+    el.style.color = color;
+    document.getElementById('aqi-label').textContent = label;
+    document.getElementById('aqi-pm25').textContent  = pm25 + ' µg/m³';
+  } catch(e) {
+    document.getElementById('aqi-label').textContent = '로딩 실패';
   }
-  async function loadAqi(){
-    try{
-      const r=await fetch('https://api.waqi.info/feed/seoul/?token=demo').then(x=>x.json());
-      const aqi=r.data.aqi; const pm25=r.data.iaqi.pm25?r.data.iaqi.pm25.v:'—';
-      const [label,color]=aqiLevel(aqi);
-      const el=document.getElementById('aqi-val'); el.textContent=aqi; el.style.color=color;
-      document.getElementById('aqi-label').textContent=label;
-      document.getElementById('aqi-pm25').textContent=pm25+' µg/m³';
-    }catch(e){document.getElementById('aqi-label').textContent='로딩 실패';}
+}
+
+async function loadFx() {
+  try {
+    const r = await fetch('https://open.er-api.com/v6/latest/USD').then(x => x.json());
+    const krw = r.rates.KRW;
+    const cny = r.rates.CNY;
+    document.getElementById('usd-krw').textContent = Math.round(krw).toLocaleString() + ' 원';
+    document.getElementById('cny-krw').textContent = Math.round(krw / cny).toLocaleString() + ' 원';
+  } catch(e) {
+    document.getElementById('usd-krw').textContent = '로딩 실패';
   }
-  async function loadFx(){
-    try{
-      const r=await fetch('https://open.er-api.com/v6/latest/USD').then(x=>x.json());
-      const krw=r.rates.KRW; const cny=r.rates.CNY;
-      document.getElementById('usd-krw').textContent=Math.round(krw).toLocaleString()+' 원';
-      document.getElementById('cny-krw').textContent=Math.round(krw/cny).toLocaleString()+' 원';
-    }catch(e){document.getElementById('usd-krw').textContent='로딩 실패';}
-  }
-  window.addEventListener('load',()=>{loadWeather();loadAqi();loadFx();});
-  </script>
+}
+
+window.addEventListener('load', () => {
+  loadWeather();
+  loadAqi();
+  loadFx();
+});
+</script>
 </body>
 </html>
